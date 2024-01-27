@@ -3,7 +3,9 @@
 {
 	"name": "Debian",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:bookworm"
+	// //note: using alpine 3.19 for bash 5.2.21
+	// debian-9 has 4.4.12
+	"image": "mcr.microsoft.com/devcontainers/base:debian-12"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

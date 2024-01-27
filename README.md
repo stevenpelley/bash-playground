@@ -3,6 +3,9 @@ playing around with bash, specifically to understand signal traps, `wait`, and h
 
 I'm new to shell but experienced with other programming languages and linux in general.  It's possible that I'm overlooking superior solutions, but a good amount of googling and searching stack overflow shows a number of other people facing similar challenges with no satisfactory responses.
 
+EDIT: After digging through the bash mailing lists I found a few related discussions.  The short of it is that what I want to do _should_ work.  This is a bug.  The question now is whether this is a new bug.  My tests use (this devcontainer provides) bash 5.2.15.  There is at least one bug with wait -n since then that should be fixed in 5.2.21, which has not reached debian stable.
+5.2.21 is in alpine 3.19.  It did not fix my bug.  I'll have to post to the mailing list.
+
 # Wait
 Terminal shells, including POSIX, include a built-in command "wait" to wait for asynchronous (i.e., background) jobs to complete.  Wait additionally returns immediately when signals are trapped/handled.  It is _the_ tool for handling concurrency within shell.  In my limited experience/opinion the semantics of this command are more complex than is necessary, while at the same time failing to precisely handle important use cases.  To top it all off the documentation tends to be scattered as this relates to several topics.
 
